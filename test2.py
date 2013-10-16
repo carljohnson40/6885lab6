@@ -36,7 +36,7 @@ idf = word_list.countByValue()
 idf_arr=[];
 for x in list(idf):
     idf_arr.append((x,math.log(516893 / (1+idf[x]))))
-print 'idf_arr ',idf_arr[200][0],' count ',idf_arr[200][1]
+#print 'idf_arr ',idf_arr[200][0],' count ',idf_arr[200][1]
 #tf
 emails_jay = json_lay.filter(lambda x: 'kenneth.lay@enron.com' in x['sender'].lower())
 emails_jay2  = json_lay.filter(lambda x: 'kenneth.lay@enron.com' in x['sender'].lower() or 'rosalee.fleming@enron.com' in x['sender'].lower())
@@ -44,9 +44,16 @@ emails_fastow = json_lay.filter(lambda x: 'andrew.fastow@enron.com' in x['sender
 tf_jay = emails_jay.flatMap(allWord).countByValue()
 tf_jay2 = emails_jay.flatMap(allWord).countByValue()
 tf_fastow = emails_fastow.flatMap(allWord).countByValue()
-print 'lay filtered1', emails_jay.count()
-print 'lay filtered2', emails_jay2.count()
-
+#print 'lay filtered1', emails_jay.count()
+#print 'lay filtered2', emails_jay2.count()
+tf_arr=[];
+for x in list(tf_jay2):
+    tf_arr.append((x,('jay',tf_jay2[x])))
+for x in list(tf_fastow):
+    tf_arr.append((x,('fastow',tf_fastow[x])))
+idf_p=sc.parallelize(idf_arr)
+tf_p=sc.parallelize(tf_arr)
+tf_ipf=idf_p.join(tf_p)
 
 
 
