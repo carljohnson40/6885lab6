@@ -1,0 +1,26 @@
+6885student
+6885passw0rd
+
+
+ https://console.aws.amazon.com/ec2/home?region=us-east-1#s=KeyPairs
+ 
+ chmod 600 yx.pem
+ 
+export AWS_ACCESS_KEY_ID=AKIAJFDTPC4XX2LVETGA
+export AWS_SECRET_ACCESS_KEY=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
+
+sudo apt-get install python27
+
+
+in /home/ubuntu/asciiclass/labs/lab6/incubator-spark/ec2
+./spark-ec2 -k yx -i /home/ubuntu/asciiclass/labs/lab6/yx.pem -s 7 --instance-type=m1.small --region=us-east-1 launch yxyang-cluster
+
+./spark-ec2 -k yx -i /home/ubuntu/asciiclass/labs/lab6/yx.pem --region=us-east-1 stop yxyang-cluster
+./spark-ec2 -k yx -i /home/ubuntu/asciiclass/labs/lab6/yx.pem --region=us-east-1 start yxyang-cluster
+
+./spark-ec2 -k yx -i /home/ubuntu/asciiclass/labs/lab6/yx.pem --region=us-east-1 login yxyang-cluster
+
+wget https://raw.github.com/mitdbg/asciiclass/lab6/labs/lab6/test.py
+
+spark://ec2-54-205-79-23.compute-1.amazonaws.com:7077
+lJPMR8IqPw2rsVKmsSgniUd+cLhpItI42Z6DCFku
