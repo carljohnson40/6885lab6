@@ -20,10 +20,10 @@ cd /home/ubuntu/asciiclass/labs/lab6/incubator-spark/ec2
 
 ./spark-ec2 -k yx -i /home/ubuntu/asciiclass/labs/lab6/yx.pem --region=us-east-1 login yxyang-cluster
 
-wget https://raw.github.com/yxyang/6885lab6/master/test2.py
+wget https://raw.github.com/yxyang/6885lab6/master/test3.py
 
-/root/spark/pyspark test2.py
-/root/spark/pyspark test2.py 2>/dev/null
+/root/spark/pyspark test3.py
+/root/spark/pyspark test3.py 2>/dev/null
 
 
 spark://ec2-54-205-79-23.compute-1.amazonaws.com:7077
