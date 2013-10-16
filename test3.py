@@ -69,8 +69,8 @@ for x in list(tf_fastow):
 idf_p=sc.parallelize(idf_arr)
 tf_p=sc.parallelize(tf_arr)
 tf_ipf=idf_p.join(tf_p)
-
-
+multiplied_frequencies = tf_ipf.map(lambda x: (x[0], x[1][1][0], x[1][0]*x[1][1][1]))
+print 'term-document weighted frequencies', multiplied_frequencies.collect()
 
 to_list = json_lay.flatMap(lambda x: x['to'])
 print 'to_list', to_list.count()
@@ -90,5 +90,5 @@ join_result = frequencies.join(inverted_index)
 # If you don't want to produce something as confusing as the next
 # line's [1][1][0] nonesense, represent your data as dictionaries with
 # named fields :).
-multiplied_frequencies = join_result.map(lambda x: (x[0], x[1][1][0], x[1][0]*x[1][1][1]))
-print 'term-document weighted frequencies', multiplied_frequencies.collect()
+#multiplied_frequencies = join_result.map(lambda x: (x[0], x[1][1][0], x[1][0]*x[1][1][1]))
+#print 'term-document weighted frequencies', multiplied_frequencies.collect()
