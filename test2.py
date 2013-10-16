@@ -32,7 +32,7 @@ word_list = json_lay.flatMap(uniWord)
 idf = word_list.countByValue()
 
 #print 'counted_idf', list(idf)
-for x in list(idf)
+for x in list(idf):
     print idf(x)
 #tf
 emails_jay = json_lay.filter(lambda x: 'kenneth.lay@enron.com' in x['sender'].lower())
