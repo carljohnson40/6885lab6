@@ -30,7 +30,7 @@ print 'lay filtered to chairman', filtered_lay.count()
 #idf
 word_list = json_lay.flatMap(uniWord)
 idf = word_list.countByValue()
-#print 'counted_values', idf
+print 'counted_values', idf[0]
 #tf
 emails_jay = json_lay.filter(lambda x: 'kenneth.lay@enron.com' in x['sender'].lower())
 emails_fastow = json_lay.filter(lambda x: 'andrew.fastow@enron.com' in x['sender'].lower())
