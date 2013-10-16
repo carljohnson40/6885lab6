@@ -35,7 +35,7 @@ idf = word_list.countByValue()
 #print 'counted_idf', list(idf)
 idf_arr=[];
 for x in list(idf):
-    idf_arr.append(x,math.log(516893 / (1+idf[x])))
+    idf_arr.append((x,math.log(516893 / (1+idf[x]))))
 #tf
 emails_jay = json_lay.filter(lambda x: 'kenneth.lay@enron.com' in x['sender'].lower())
 emails_jay2  = json_lay.filter(lambda x: 'kenneth.lay@enron.com' in x['sender'].lower() or 'rosalee.fleming@enron.com' in x['sender'].lower())
