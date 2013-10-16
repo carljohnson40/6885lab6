@@ -1,18 +1,17 @@
 from pyspark import SparkContext
 import json
 import time
-from term_tools import get_terms
 
 def uniWord(email):
     output = []
-    for x in get_terms(email['text']):
+    for x in email['text'].split(' '):
         if x not in output:
             output.append(x)
     return output
     
 def allWord(email):
     output = []
-    for x in get_terms(email['text']):
+    for x in email['text'].split(' '):
         output.append(x)
     return output
     
